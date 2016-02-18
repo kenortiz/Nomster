@@ -7,12 +7,16 @@ class PlacesController < ApplicationController
 	end
 
 	def new
-		@places = Place.new
+		@place = Place.new
 	end
 
 	def create
-		current_user.places.create(place_params)
-		redirect_to root_path
+		@place = current_user.places.create(place_params)
+		if @place.valid?
+			redirect_to root_path
+		else
+			render :new, status: :unprocessable_entity
+		end
 	end
 
 	def show
@@ -34,7 +38,11 @@ class PlacesController < ApplicationController
 		end
 		# If return was not added to our if statement, a clever user would see the error message but the below code would continue to execute and the database item would be updated.
 		@place.update_attributes(place_params)
-		redirect_to root_path
+		if @place.valid?
+			redirect_to root_path
+		else
+			render :edit, status: :unprocessable_entity
+		end
 	end
 
 	def destroy
