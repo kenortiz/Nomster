@@ -54,6 +54,9 @@ gem 'geocoder'
 
 gem 'figaro', '>= 1.0.0'
 
+# Use carrierwave for photo upload
+gem 'carrierwave'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
