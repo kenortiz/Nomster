@@ -4,11 +4,18 @@
 		<i><%= place.address %></i>
 		<br /><br />
 		<p><%= place.description %></p>
-		<br />
 
 		<% if place.user.present? %>
 			<small><%= place.user.email %></small>
 		<% end %>
+		<br /><br />
+		<div class="clear"></div>
+
+		<% if place.photos.present? %>
+			<div class="col-xs-12 thumbnail">
+	      <%= image_tag place.photos.last.picture, id: 'index_image' %>
+			</div>
+    <% end %>
 
 		<% if place.comments.present? %>
 			<div class="col-xs-12">
