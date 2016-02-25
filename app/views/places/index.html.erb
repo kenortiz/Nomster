@@ -8,13 +8,13 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
     <div class="item active">
-      <%= image_tag 'slider1.jpg' %>
+      <%= image_tag 'slider1.jpg', class: 'img-responsive' %>
       <div class="carousel-caption">
         Looking for a new food truck to hit it up?
       </div>
     </div>
 		<div class="item">
-      <%= image_tag 'slider2.jpg' %>
+      <%= image_tag 'slider2.jpg', class: 'img-responsive' %>
       <div class="carousel-caption">
         Or just a good bowl of pasta?
       </div>
@@ -31,7 +31,7 @@
 </div>
 
 <% @places.each do |place| %>
-	<div class="booyah-box col-xs-10 col-offset-1">
+	<div class="booyah-box col-xs-10 col-xs-offset-1">
 		<h1><%= link_to place.name, place_path(place) %></h1>
 		<i><%= place.address %></i>
 		<br /><br />
